@@ -1,0 +1,5 @@
+numpy>=1.26.1
+simplejpeg
+picamera2
+ultralytics
+opencv-python  # For webcam/video/image processing
