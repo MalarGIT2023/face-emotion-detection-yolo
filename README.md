@@ -41,7 +41,7 @@ This is the **Inference & Deployment** component of the emotion detection system
 Step 1: Dataset Management          Step 2: Model Training          Step 3: Inference & Deploy
 ┌─────────────────────────┐         ┌──────────────────────┐       ┌───────────────────────────┐
 │ roboflow-dataset-manager│   →     │ yolo-model-training  │   →   │face-emotion-detection-yolo│
-│                         │         │                      │       │   (THIS PROJECT)          │
+│  (SEPARATE REPO)        │         │  (SEPARATE REPO)     │       │   (THIS PROJECT)          │
 │ • Find datasets         │         │ • Train YOLOv11      │       │                           │
 │ • Download from         │         │ • Fine-tune weights  │       │ • Real-time detection     │
 │   Roboflow Universe     │         │ • Save best.pt       │       │ • Demo scripts            │
@@ -98,21 +98,25 @@ Step 1: Dataset Management          Step 2: Model Training          Step 3: Infe
 
 ### Prerequisites: Trained Model Required
 
-This project is the **deployment/inference stage**. It requires a trained emotion detection model. You must complete these steps first:
+This project is the **deployment/inference stage**. It requires a trained emotion detection model from a separate training repository. You must complete these steps first:
 
-**1. Prepare Dataset**
+**1. Prepare Dataset (Separate Repository)**
+Clone and run the dataset manager from its own repository:
 ```bash
-cd ../roboflow-dataset-manager
+git clone https://github.com/MalarGIT2023/roboflow-dataset-manager.git
+cd roboflow-dataset-manager
 python dataset-download.py
-# See ../roboflow-dataset-manager/README.md for detailed instructions
+# See the repository's README.md for detailed instructions
 ```
 
-**2. Train Model**
+**2. Train Model (Separate Repository)**
+Clone and run the model training from its own repository:
 ```bash
-cd ../yolo-model-training
+git clone https://github.com/MalarGIT2023/yolo-model-training.git
+cd yolo-model-training
 python model-training.py
 # Output: runs/detect/train/weights/best.pt
-# See ../yolo-model-training/README.md for training details
+# See the repository's README.md for training details
 ```
 
 **3. Copy Trained Model**
@@ -125,8 +129,8 @@ cp ../yolo-model-training/runs/detect/train/weights/best.pt \
 
 #### Step 1: Clone the Repository
 ```bash
-git clone <repository-url>
-cd ieee-mission-tomorrow/face-emotion-detection-yolo
+git clone https://github.com/MalarGIT2023/face-emotion-detection-yolo.git
+cd face-emotion-detection-yolo
 ```
 
 #### Step 2: Create and Activate Virtual Environment
@@ -167,37 +171,35 @@ python app-pt.py
 1. **Using the demo script** — Run `./demo/face-emotion-yolo.sh`
 2. **Select camera** — If multiple cameras are detected, choose which one to use
 3. **View live detection** — Emotion labels with confidence scores appear in real-time
-4. **Monitor performance** — FPS is displayed in the top-right corner
+4. **Monitor performance** — Frame Per Second (FPS) is displayed in the top-right corner
 5. **Exit** — Press **'q'** to quit the application
 
 ## Project Structure
 
+**This Repository** (face-emotion-detection-yolo - Inference & Deployment):
 ```
-ieee-mission-tomorrow/
-├── roboflow-dataset-manager/              ← Separate project: Dataset prep
-│   ├── README.md
-│   ├── ROBOFLOW_GUIDE.md
-│   └── dataset-download.py
-│
-├── yolo-model-training/                   ← Separate project: Model training
-│   ├── README.md
-│   ├── model-training.py
-│   ├── version1/ & version2/              ← Downloaded datasets
-│   └── runs/
-│       └── detect/
-│           └── train/
-│               └── weights/best.pt        ← Trained model output
-│
-└── face-emotion-detection-yolo/           ← THIS PROJECT: Inference
-    ├── app-pt.py
-    ├── requirements.txt
-    ├── README.md (this file)
-    ├── face-emotion-yolo-venv/
-    │   └── demo/
-    │       └── face-emotion-yolo.sh
-    └── yolo-trained-models/
-        └── emotionsbest.pt               ← Copy from training project
+face-emotion-detection-yolo/
+├── app-pt.py
+├── requirements.txt
+├── README.md (this file)
+├── demo/
+│   └── face-emotion-yolo.sh
+└── yolo-trained-models/
+    └── emotionsbest.pt               ← Trained model (copied from training repo)
 ```
+
+**Related Separate Repositories**:
+
+1. **roboflow-dataset-manager** — Dataset management and downloading
+   - Repository: Separate GitHub repository
+   - Purpose: Download and prepare emotion datasets
+   - See its own README for structure and details
+
+2. **yolo-model-training** — Model training
+   - Repository: Separate GitHub repository
+   - Purpose: Train YOLOv11 models on emotion datasets
+   - Output: `runs/detect/train/weights/best.pt`
+   - See its own README for structure and details
 
 ## Technical Details
 
@@ -287,70 +289,81 @@ The script automatically detects USB vs Raspberry Pi cameras. If colors appear i
 
 ## Related Projects
 
-This is part of the IEEE Mission Tomorrow emotion detection ecosystem. For complete information:
+This project is part of the IEEE Mission Tomorrow emotion detection application. It's designed to work with two other **separate repositories**:
 
-### 1. **roboflow-dataset-manager** (Prerequisite)
+### 1. **roboflow-dataset-manager** (Separate Repository)
 Manages emotion detection datasets from Roboflow Universe.
 
-**Location**: `../roboflow-dataset-manager/`
-
+**Repository**: Separate GitHub repository  
 **Purpose**:
 - Download emotion detection datasets
 - Access Roboflow Universe
 - Prepare data in YOLOv11 format
 
-**See**: `../roboflow-dataset-manager/README.md` and `ROBOFLOW_GUIDE.md`
-
+**Setup**:
 ```bash
-cd ../roboflow-dataset-manager
+git clone https://github.com/MalarGIT2023/roboflow-dataset-manager.git
+cd roboflow-dataset-manager
 python dataset-download.py
 ```
 
-### 2. **yolo-model-training** (Prerequisite)
+**See**: That repository's README.md for detailed instructions.
+
+### 2. **yolo-model-training** (Separate Repository)
 Trains YOLOv11 models on emotion datasets.
 
-**Location**: `../yolo-model-training/`
-
+**Repository**: Separate GitHub repository  
 **Purpose**:
 - Fine-tune YOLOv11 on emotion data
 - Generate trained weights
 - Export best model
 
-**See**: `../yolo-model-training/README.md`
-
+**Setup**:
 ```bash
-cd ../yolo-model-training
+git clone https://github.com/MalarGIT2023/yolo-model-training.git
+cd yolo-model-training
 python model-training.py
 ```
 
-### 3. **This Project: face-emotion-detection-yolo**
-Real-time inference on Raspberry Pi.
+**See**: That repository's README.md for detailed instructions.
 
-**Workflow**:
+### 3. **This Project: face-emotion-detection-yolo**
+Real-time inference on Raspberry Pi (deployment stage).
+
+### Complete Workflow
+
 ```
-Dataset Project → Training Project → This Project (Inference)
+roboflow-dataset-manager (separate repo)
+           ↓
+yolo-model-training (separate repo)
+           ↓
+face-emotion-detection-yolo (this repo - inference)
 ```
 
 ### Complete Workflow Example
 
 ```bash
-# Step 1: Prepare dataset
-cd ../roboflow-dataset-manager
+# Step 1: Prepare dataset (in separate repository)
+git clone https://github.com/MalarGIT2023/roboflow-dataset-manager.git
+cd roboflow-dataset-manager
 python dataset-download.py
+cd ..
 
-# Step 2: Train model
-cd ../yolo-model-training
+# Step 2: Train model (in separate repository)
+git clone https://github.com/MalarGIT2023/yolo-model-training.git
+cd yolo-model-training
 python model-training.py
 # Output: runs/detect/train/weights/best.pt
+cd ..
 
-# Step 3: Deploy for inference
-cd ../face-emotion-detection-yolo
+# Step 3: Deploy for inference (this repository)
+git clone https://github.com/MalarGIT2023/face-emotion-detection-yolo.git
+cd face-emotion-detection-yolo
 cp ../yolo-model-training/runs/detect/train/weights/best.pt \
    ./yolo-trained-models/emotionsbest.pt
 
 # Step 4: Run the application
-cd demo
-./face-emotion-yolo.sh
+./demo/face-emotion-yolo.sh
 ```
 
 ## Performance Benchmarks
@@ -455,7 +468,7 @@ This project is licensed under the **MIT License**. See [LICENSE](LICENSE) file 
 **Version**: 1.0  
 **Optimized for**: Raspberry Pi 5 with YOLOv11 Nano  
 **Component**: Inference & Deployment  
-**Related Projects**: 
-- `../roboflow-dataset-manager/` (Dataset management)
-- `../yolo-model-training/` (Model training)
+**Related Projects** (separate repositories): 
+- roboflow-dataset-manager (Dataset management)
+- yolo-model-training (Model training)
 
