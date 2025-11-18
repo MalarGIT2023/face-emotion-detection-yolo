@@ -143,13 +143,6 @@ Step 1: Dataset Manager          Step 2: Model Training          Step 3: Real-Ti
 - **[Model Training Guide](https://github.com/MalarGIT2023/yolo-model-training/blob/main/README.md)** - Train on your own data
 - **[Deployment Guide](https://github.com/MalarGIT2023/face-emotion-detection-yolo/blob/main/README.md)** - Deploy anywhere
 
-### Blog Posts & Tutorials
-- **[Beginner's Guide: Real-Time Emotion Detection on Raspberry Pi](https://dev.to/malar)** - Complete tutorial
-- **[Technical Deep Dive: Transfer Learning for Emotion Detection](https://medium.com/malar)** - Advanced topics
-- **[Quick Start: Get Emotions Running in 5 Minutes](https://hashnode.com/malar)** - Fast setup
-
----
-
 ## 💻 System Requirements
 
 ### Minimum
