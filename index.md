@@ -59,14 +59,19 @@ Classifies **10 emotions** in real-time:
 |---------|----------|
 | 😊 **Happy** | Smiling, laughing |
 | 😢 **Sad** | Frowning, tears |
-| 😠 **Angry** | Furrowed brow, tight jaw |
 | 😲 **Excited** | Wide eyes, open mouth |
+| 😠 **Angry** | Furrowed brow, tight jaw |
 | 😨 **Fear** | Eyes wide, raised brows |
 | 🤢 **Disgust** | Nose wrinkle, lip curl |
 | 😐 **Serious** | Neutral expression, focused |
 | 🤔 **Thinking** | Pondering, concentrating |
 | 😟 **Worried** | Concerned, anxious |
 | 😶 **Neutral** | No clear emotion |
+
+**Note:**
+ - Dataset used to train this yolo11 model has images that reflect predominantly 3 emotions, "Happy", "Sad", and "Excited". 
+ - As the dataset is not adequately provisioned with images for other emotions, the rest of the emotions may not be detected all the time.
+ - Retrain the model with different dataset following the instructions provided in the **In-Depth Guides** below.
 
 ---
 
@@ -94,8 +99,8 @@ This is a **3-project ecosystem** working together:
 ```
 Step 1: Dataset Manager          Step 2: Model Training          Step 3: Real-Time Deployment
     ↓                                   ↓                                ↓
-[Download Datasets]  →  [Train Model]  →  [Deploy on Pi]
-   Roboflow API           YOLOv11              Live Detection
+[Download Datasets]         →      [Train Model]            →      [Deploy on Pi]
+   Roboflow API                       YOLOv11                      Live Detection
 ```
 
 ### The Three Projects:
