@@ -1,10 +1,13 @@
-```markdown
-![Python](https://img.shields.io/badge/Python-3.8%2B-blue)(https://www.python.org/)
-![PyTorch](https://img.shields.io/badge/PyTorch-Compatible-red)(https://pytorch.org/)
-![YOLO](https://img.shields.io/badge/YOLO-v11-brightgreen)(https://docs.ultralytics.com/)
-![License](https://img.shields.io/badge/License-MIT-green)(LICENSE)
-![Stars](https://img.shields.io/github/stars/MalarGIT2023/face-emotion-detection-yolo?style=social)(https://github.com/MalarGIT2023/face-emotion-detection-yolo)
-```
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
+![PyTorch](https://img.shields.io/badge/PyTorch-Required-red)
+![YOLO](https://img.shields.io/badge/YOLO-Ultralytics-v11-brightgreen)
+![OpenCV](https://img.shields.io/badge/OpenCV-Computer%20Vision-orange)
+![PiCamera2](https://img.shields.io/badge/PiCamera2-libcamera%20API-lightgrey)
+![RaspberryPi](https://img.shields.io/badge/Raspberry%20Pi-Compatible-green)
+![Model](https://img.shields.io/badge/AI-Real--Time--Inference-purple)
+![License](https://img.shields.io/badge/License-MIT-green)
+[![Stars](https://img.shields.io/github/stars/MalarGIT2023/face-emotion-detection-yolo?style=social)](https://github.com/MalarGIT2023/face-emotion-detection-yolo)
+
 # Facial Emotion Detection using YOLOv11
 
 **Mission Tomorrow Career Exploration Event hosted by Chamber RVA**  
