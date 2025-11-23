@@ -1,3 +1,10 @@
+```markdown
+[![Python](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org/)
+[![PyTorch](https://img.shields.io/badge/PyTorch-Compatible-red)](https://pytorch.org/)
+[![YOLO](https://img.shields.io/badge/YOLO-v11-brightgreen)](https://docs.ultralytics.com/)
+[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
+[![Stars](https://img.shields.io/github/stars/MalarGIT2023/face-emotion-detection-yolo?style=social)](https://github.com/MalarGIT2023/face-emotion-detection-yolo)
+```
 # Facial Emotion Detection using YOLOv11
 
 **Mission Tomorrow Career Exploration Event hosted by Chamber RVA**  
